@@ -55,11 +55,11 @@ git tag v%{version}
 unzip -q %{SOURCE1} -d %{_builddir}
 
 %ifarch x86_64
-tar -xf %{SOURCE3}
+tar -xf %{SOURCE3} -C %{_builddir}
 %endif
 
 %ifarch aarch64
-tar -xf %{SOURCE4}
+tar -xf %{SOURCE4} -C %{_builddir}
 %endif
 
 %build
