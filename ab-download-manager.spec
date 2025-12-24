@@ -10,14 +10,8 @@ URL:            https://abdownloadmanager.com
 Source0:        https://github.com/amir1376/ab-download-manager/archive/refs/tags/v%{version}.tar.gz
 Source1:        https://services.gradle.org/distributions/gradle-9.2.1-bin.zip
 Source2:        abdownloadmanager.desktop
-
-%ifarch x86_64
 Source3:        https://cache-redirector.jetbrains.com/intellij-jbr/jbrsdk_jcef-21.0.9-linux-x64-b895.149.tar.gz
-%endif
-
-%ifarch aarch64
-Source3:        https://cache-redirector.jetbrains.com/intellij-jbr/jbrsdk_jcef-21.0.9-linux-aarch64-b895.149.tar.gz
-%endif
+Source4:        https://cache-redirector.jetbrains.com/intellij-jbr/jbrsdk_jcef-21.0.9-linux-aarch64-b895.149.tar.gz
 
 ExclusiveArch:  x86_64 aarch64
 
@@ -51,7 +45,14 @@ git tag v%{version}
 
 # Extract Gradle
 unzip -q %{SOURCE1} -d %{_builddir}
-tar -xf %{SOURCE3} -C %{_builddir}
+
+%ifarch x86_64
+tar -xf %{SOURCE3}
+%endif
+
+%ifarch aarch64
+tar -xf %{SOURCE4}
+%endif
 
 %build
 # Add required env var
