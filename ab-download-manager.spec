@@ -1,5 +1,13 @@
 %global debug_package %{nil}
 
+%ifarch x86_64
+%global jbr_dir jbrsdk_jcef-21.0.9-linux-x64-b895.149
+%endif
+
+%ifarch aarch64
+%global jbr_dir jbrsdk_jcef-21.0.9-linux-aarch64-b895.149
+%endif
+
 Name:           ab-download-manager
 Version:        1.8.2       
 Release:        1%{dist}
@@ -55,15 +63,6 @@ tar -xf %{SOURCE4}
 %endif
 
 %build
-# Set JBR path
-%ifarch x86_64
-%global jbr_dir jbrsdk_jcef-21.0.9-linux-x64-b895.149
-%endif
-
-%ifarch aarch64
-%global jbr_dir jbrsdk_jcef-21.0.9-linux-aarch64-b895.149
-%endif
-
 # Add required env var
 export JAVA_HOME=%{_builddir}/%{jbr_dir}
 export PATH=$JAVA_HOME/bin:$PATH
