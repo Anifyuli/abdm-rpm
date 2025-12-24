@@ -6,7 +6,7 @@
 
 **RPM packaging for AB Download Manager**
 
-[![Copr build status](https://copr.fedorainfracloud.org/coprs/YOUR_USERNAME/ab-download-manager/package/ab-download-manager/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/YOUR_USERNAME/ab-download-manager/)
+[![Copr build status](https://copr.fedorainfracloud.org/coprs/anifyuliansyah/ab-download-manager/package/ab-download-manager/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/YOUR_USERNAME/ab-download-manager/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Fedora](https://img.shields.io/badge/Fedora-41+-blue.svg?logo=fedora&logoColor=white)](https://getfedora.org/)
 [![RHEL](https://img.shields.io/badge/RHEL-9+-red.svg?logo=redhat&logoColor=white)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
