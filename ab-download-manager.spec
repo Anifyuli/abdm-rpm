@@ -2,8 +2,8 @@
 %global jbr_dir jbrsdk_jcef-21.0.9-linux-x64-b895.149
 
 Name:           ab-download-manager
-Version:        1.8.2       
-Release:        3%{dist}
+Version:        1.8.3 
+Release:        1%{dist}
 Summary:        A Download Manager that speeds up your downloads
 
 License:        Apache-2.0
@@ -82,6 +82,9 @@ ln -s ../../opt/abdownloadmanager/bin/ABDownloadManager \
 %{_bindir}/abdownloadmanager
 
 %changelog
+* Thu Dec 25 2025 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.3-1
+- Bump version to 1.8.3
+
 * Thu Dec 25 2025 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.2-3
 - Fix Git tag for proper app versioning
 
