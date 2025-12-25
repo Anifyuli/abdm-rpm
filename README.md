@@ -82,7 +82,7 @@ If you want to build the package locally before submitting to Copr:
 sudo dnf install fedpkg mock
 
 # Clone this repository
-git clone https://github.com/YOUR_USERNAME/ab-download-manager-copr.git
+git clone https://github.com/Anifyuli/abdm-rpm.git
 cd ab-download-manager-copr
 
 # Build with mock (clean environment)
@@ -135,7 +135,7 @@ The original AB Download Manager is developed by [Amir Hossein](https://github.c
 
 ## 🔗 Links
 
-- **Copr Repository**: [copr.fedorainfracloud.org/coprs/YOUR_USERNAME/ab-download-manager](https://copr.fedorainfracloud.org/coprs/YOUR_USERNAME/ab-download-manager/)
+- **Copr Repository**: [copr.fedorainfracloud.org/coprs/anifyuliansyah/ab-download-manager](https://copr.fedorainfracloud.org/coprs/anifyuliansyah/ab-download-manager/)
 - **Upstream Project**: [AB Download Manager on GitHub](https://github.com/amir1376/ab-download-manager)
 - **Official Website**: [abdownloadmanager.com](https://abdownloadmanager.com)
 - **AUR Package** (Reference): [ab-download-manager on AUR](https://aur.archlinux.org/packages/ab-download-manager)
@@ -168,8 +168,6 @@ For packaging changes, see [commits history](../../commits/main).
 
 ---
 
-<div align="center">
-
 **Made with ❤️ for the Fedora/RHEL community**
 
 If this packaging helps you, consider:
@@ -177,4 +175,3 @@ If this packaging helps you, consider:
 - ⭐ **Starring** the [upstream project](https://github.com/amir1376/ab-download-manager)
 - 💬 **Sharing** with others who might find it useful
 
-</div>
