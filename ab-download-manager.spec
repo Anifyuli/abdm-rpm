@@ -3,7 +3,7 @@
 
 Name:           ab-download-manager
 Version:        1.8.2       
-Release:        2%{dist}
+Release:        3%{dist}
 Summary:        A Download Manager that speeds up your downloads
 
 License:        Apache-2.0
@@ -42,6 +42,7 @@ git config user.name "RPM Builder"
 git add .
 git commit -m "RPM build"
 git tag v%{version}
+git checkout v%{version}
 
 # Extract Gradle
 unzip -q %{SOURCE1} -d %{_builddir}
@@ -81,6 +82,9 @@ ln -s ../../opt/abdownloadmanager/bin/ABDownloadManager \
 %{_bindir}/abdownloadmanager
 
 %changelog
+* Thu Dec 25 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.2-3
+- Fix Git tag for proper app versioning
+
 * Wed Dec 24 2025 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.2-2
 - Remove aarch64 support due to toolchain support limit from upstream
 
