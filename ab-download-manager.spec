@@ -57,7 +57,7 @@ export SKIP_ANDROID_BUILD=true
 ./gradlew --no-daemon createReleaseFolderForCi
 
 %install
-tar -xf build/ci-release/binaries/ABDownloadManager_1.0.0-master-snapshot_linux_x64.tar.gz
+tar -xf build/ci-release/binaries/ABDownloadManager_*_linux_x64.tar.gz
 mkdir -p %{buildroot}/opt/abdownloadmanager
 cp -r ABDownloadManager/* %{buildroot}/opt/abdownloadmanager/
 
@@ -82,7 +82,7 @@ ln -s ../../opt/abdownloadmanager/bin/ABDownloadManager \
 %{_bindir}/abdownloadmanager
 
 %changelog
-* Thu Dec 25 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.2-3
+* Thu Dec 25 2025 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.2-3
 - Fix Git tag for proper app versioning
 
 * Wed Dec 24 2025 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.2-2
