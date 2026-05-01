@@ -3,7 +3,7 @@
 
 Name:           ab-download-manager
 Version:        1.8.8 
-Release:        1%{dist}
+Release:        2%{dist}
 Summary:        A Download Manager that speeds up your downloads
 
 License:        Apache-2.0
@@ -20,10 +20,8 @@ Requires:       libXtst
 Requires:       harfbuzz
 Requires:       fontconfig
 Requires:       gtk3
-Requires:       java-21-openjdk-headless
 
 BuildRequires:  git
-BuildRequires:  java-21-openjdk-devel
 BuildRequires:  unzip
 BuildRequires:  desktop-file-utils
 
@@ -82,7 +80,10 @@ ln -s ../../opt/abdownloadmanager/bin/ABDownloadManager \
 %{_bindir}/abdownloadmanager
 
 %changelog
-* Fri Apr 24 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.6-1
+* Fri May 1 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.8-2
+- Remove java-21-openjdk-headless as required deps
+
+* Fri Apr 24 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.8-1
 - Bump version to 1.8.8
 
 * Fri Feb 13 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.6-1
