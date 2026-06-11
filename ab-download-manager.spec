@@ -2,8 +2,8 @@
 %global jbr_dir jbrsdk_jcef-21.0.9-linux-x64-b895.149
 
 Name:           ab-download-manager
-Version:        1.8.8 
-Release:        2%{dist}
+Version:        1.9.0
+Release:        1%{dist}
 Summary:        A Download Manager that speeds up your downloads
 
 License:        Apache-2.0
@@ -80,6 +80,9 @@ ln -s ../../opt/abdownloadmanager/bin/ABDownloadManager \
 %{_bindir}/abdownloadmanager
 
 %changelog
+* Thursday Jun 11 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.9.0-1
+- Bump version to 1.9.0
+
 * Fri May 1 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.8.8-2
 - Remove java-21-openjdk-headless as required deps
 
