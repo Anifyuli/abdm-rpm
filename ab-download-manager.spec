@@ -1,9 +1,9 @@
 %global debug_package %{nil}
-%global jbr_dir jbrsdk_jcef-25.0.3-linux-x64-b508.4
+%global jbr_dir jbr_jcef-25.0.3-linux-x64-b508.4 
 
 Name:           ab-download-manager
 Version:        1.9.0
-Release:        2%{dist}
+Release:        3%{dist}
 Summary:        A Download Manager that speeds up your downloads
 
 License:        Apache-2.0
@@ -11,7 +11,7 @@ URL:            https://abdownloadmanager.com
 Source0:        https://github.com/amir1376/ab-download-manager/archive/refs/tags/v%{version}.tar.gz
 Source1:        https://services.gradle.org/distributions/gradle-9.2.1-bin.zip
 Source2:        abdownloadmanager.desktop
-Source3:        https://cache-redirector.jetbrains.com/intellij-jbr/jbrsdk_jcef-21.0.9-linux-x64-b895.149.tar.gz
+Source3:        https://cache-redirector.jetbrains.com/intellij-jbr/%{jbr_dir}.tar.gz
 
 ExclusiveArch:  x86_64
 
@@ -80,6 +80,9 @@ ln -s ../../opt/abdownloadmanager/bin/ABDownloadManager \
 %{_bindir}/abdownloadmanager
 
 %changelog
+* Thu Jun 11 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.9.0-3
+- Fix JBR location & JAVA_HOME missmatch
+
 * Thu Jun 11 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.9.0-2
 - Update JBR to 25.0.3
 
