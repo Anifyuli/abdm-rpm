@@ -1,5 +1,5 @@
 %global debug_package %{nil}
-%global jbr_dir jbr_jcef-25.0.3-linux-x64-b508.4 
+%global jbr_dir jbrsdk_jcef-25.0.3-linux-x64-b508.4 
 
 Name:           ab-download-manager
 Version:        1.9.0
