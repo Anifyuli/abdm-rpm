@@ -2,8 +2,8 @@
 %global jbr_dir jbrsdk_jcef-25.0.3-linux-x64-b508.4 
 
 Name:           ab-download-manager
-Version:        1.9.0
-Release:        3%{dist}
+Version:        1.10.1
+Release:        1%{dist}
 Summary:        A Download Manager that speeds up your downloads
 
 License:        Apache-2.0
@@ -80,6 +80,9 @@ ln -s ../../opt/abdownloadmanager/bin/ABDownloadManager \
 %{_bindir}/abdownloadmanager
 
 %changelog
+* Thu Jul 30 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.10.1-1
+- Bump version to 1.10.1
+
 * Thu Jun 11 2026 Anifyuliansyah <anifyuli007@outlook.co.id> 1.9.0-3
 - Fix JBR location & JAVA_HOME missmatch
 
