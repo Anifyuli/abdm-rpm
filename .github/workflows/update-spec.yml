@@ -1,0 +1,76 @@
+name: Update ABDM spec
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: abdm-update
+  cancel-in-progress: false
+
+env:
+  UPSTREAM: amir1376/ab-download-manager
+  SPEC: ab-download-manager.spec
+  PACKAGER: Anifyuliansyah <anifyuli007@outlook.co.id>
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    steps:
+      - name: Install tools
+        run: dnf install -y git jq curl rpmdevtools
+
+      - uses: actions/checkout@v4
+
+      - name: Check upstream release
+        id: check
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+          LATEST=$(curl -fsSL \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "https://api.github.com/repos/${UPSTREAM}/releases/latest" \
+            | jq -r .tag_name | sed 's/^v//')
+          CURRENT=$(awk '/^Version:/{print $2; exit}' "$SPEC")
+
+          echo "upstream=$LATEST current=$CURRENT"
+
+          if [ "$LATEST" != "$CURRENT" ] && \
+             [ "$(printf '%s\n%s\n' "$CURRENT" "$LATEST" | sort -V | tail -1)" = "$LATEST" ]; then
+            echo "update=true" >> "$GITHUB_OUTPUT"
+            echo "version=$LATEST" >> "$GITHUB_OUTPUT"
+          else
+            echo "update=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump spec
+        if: steps.check.outputs.update == 'true'
+        run: |
+          VER="${{ steps.check.outputs.version }}"
+          DATE=$(LC_ALL=C date -u +"%a %b %d %Y")
+
+          sed -i -E "s/^Version:.*/Version:        ${VER}/" "$SPEC"
+          sed -i -E "s/^Release:.*/Release:        1%{dist}/" "$SPEC"
+          sed -i "/^%changelog/a * ${DATE} ${PACKAGER} ${VER}-1\n- Bump version to ${VER}\n" "$SPEC"
+
+      - name: Verify Source URLs resolve
+        if: steps.check.outputs.update == 'true'
+        run: |
+          spectool -l "$SPEC" | awk '/^Source[0-9]+: https?:/{print $2}' | while read -r url; do
+            echo "Checking $url"
+            curl -fsL -r 0-0 -o /dev/null "$url" || { echo "::error::URL tidak bisa diakses: $url"; exit 1; }
+          done
+
+      - name: Commit & push
+        if: steps.check.outputs.update == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$SPEC"
+          git commit -m "Bump ab-download-manager to ${{ steps.check.outputs.version }}"
+          git push
